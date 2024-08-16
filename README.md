@@ -14,7 +14,8 @@ Este proyecto es una API RESTful desarrollada en Node.js para gestionar una bibl
 
 ## Esquema de la Base de Datos
 
-La base de datos utilizada en este proyecto sigue el siguiente esquema:
+La base de datos utilizada en este proyecto se encuentra dentro de la carpeta `script/`,
+ y sigue el siguiente esquema:
 
 ```sql
 CREATE SCHEMA IF NOT EXISTS `rest-api` DEFAULT CHARACTER SET utf8mb4;
