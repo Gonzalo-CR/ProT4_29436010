@@ -1,16 +1,16 @@
 {
   "name": "prot4_29436010",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "GECR 2024",
   "license": "ISC",
-  "description": "",
+  "description": "Tarea Integradora T4 del módulo II del curso 'Desarrollo frontend y backend (Nivel 1)' de Talentos Digitales 2024",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
