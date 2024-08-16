@@ -82,7 +82,7 @@ Ejemplos de Operaciones CRUD en Postman
 1. Clona el repositorio:
 
     ```bash
-    git clone https://github.com/tu_usuario/ProT4_29436010.git
+    git clone https://github.com/Gonzalo-CR/ProT4_29436010.git
     cd ProT4_29436010
     ```
 

@@ -28,7 +28,7 @@ class BibliotecaController {
             const [rows] = await pool.query('SELECT * FROM libros');
             res.json(rows);
         } catch (err) {
-            next(err); // Pasar el error al manejador global
+            next(err); 
         }
     }
 
@@ -42,14 +42,14 @@ class BibliotecaController {
             }
             res.json(rows[0]);
         } catch (err) {
-            next(err); // Pasar el error al manejador global
+            next(err); 
         }
     }
 
     // Crear un nuevo libro
     async create(req, res, next) {
         try {
-            validateLibroData(req.body); // Validación manual
+            validateLibroData(req.body); 
 
             const { nombre, autor, categoria, 'año-publicacion': añoPublicacion, ISBN } = req.body;
 
@@ -69,14 +69,14 @@ class BibliotecaController {
             if (err.code === 'ER_DUP_ENTRY') {
                 return res.status(400).json({ message: 'El ISBN ya existe. Debe ser único.' });
             }
-            next(err); // Pasar el error al manejador global
+            next(err); 
         }
     }
 
     // Actualizar un libro por ID
     async update(req, res, next) {
         try {
-            validateLibroData(req.body); // Validación manual
+            validateLibroData(req.body); 
 
             const { id } = req.params;
             const { nombre, autor, categoria, 'año-publicacion': añoPublicacion, ISBN } = req.body;
@@ -90,7 +90,7 @@ class BibliotecaController {
             }
             res.json({ message: 'Libro actualizado correctamente' });
         } catch (err) {
-            next(err); // Pasar el error al manejador global
+            next(err); 
         }
     }
 
@@ -104,7 +104,7 @@ class BibliotecaController {
             }
             res.json({ message: 'Libro eliminado correctamente' });
         } catch (err) {
-            next(err); // Pasar el error al manejador global
+            next(err); 
         }
     }
 }
