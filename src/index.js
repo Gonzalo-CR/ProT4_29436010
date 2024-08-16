@@ -3,6 +3,12 @@ import morgan from 'morgan';
 import { router } from './routes.js'; 
 import cors from 'cors';
 import { errorHandler } from './errorHandler.js'; 
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// Obtener __dirname en ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -14,6 +20,9 @@ app.set('port', port);
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cors());
+
+// Servir archivos estáticos
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Rutas de la API
 app.use(router);

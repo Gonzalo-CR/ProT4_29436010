@@ -66,6 +66,9 @@ class BibliotecaController {
             );
             res.json({ "Id insertado": result.insertId });
         } catch (err) {
+            if (err.code === 'ER_DUP_ENTRY') {
+                return res.status(400).json({ message: 'El ISBN ya existe. Debe ser único.' });
+            }
             next(err); // Pasar el error al manejador global
         }
     }
