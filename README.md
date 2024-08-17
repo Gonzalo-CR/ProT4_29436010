@@ -124,8 +124,7 @@ INSERT INTO `rest-api`.`libros` (`nombre`, `autor`, `categoria`, `año-publicaci
   - Retorna un mensaje confirmando la eliminación o un error si el libro no existe.
 
 
-## Capturas de Pantalla
-Ejemplos de Operaciones CRUD en Postman
+## Ejemplos de Operaciones CRUD en Postman
 
 - **Obtener todos los libros** (GET /biblioteca)
   ![Obtener todos los libros](./img/getAll_Postman.png)
