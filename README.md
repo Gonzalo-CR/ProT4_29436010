@@ -49,27 +49,6 @@ INSERT INTO `rest-api`.`libros` (`nombre`, `autor`, `categoria`, `año-publicaci
 ('Los juegos del hambre', 'Suzanne Collins', 'Distopía', '2008-09-14', '9780439023481');
 ```
 
-## Capturas de Pantalla
-Ejemplos de Operaciones CRUD en Postman
-
-- **Obtener todos los libros** (GET /biblioteca)
-  ![Obtener todos los libros](./img/getAll_Postman.png)
-
-- **Obtener un libro por ID** (GET /biblioteca/:id)
-  ![Obtener un libro por ID](./img/getOne_Postman.png)
-
-- **Crear un nuevo libro** (POST /libroNuevo)
-  ![Crear un nuevo libro](./img/create_Postman.png)
-
-- **Actualizar un libro** (PUT /biblioteca/:id)
-  ![Actualizar un libro](./img/update_Postman.png)
-
-- **Eliminar un libro por ISBN** (DELETE /biblioteca/:ISBN)
-  ![Eliminar un libro por ISBN](./img/delete_Postman.png)
-
-***Respuesta en la terminal a todas estas acciones:***
-
-![CRUD en Terminal](./img/CRUD_Terminal.png)
 
 ## Instalación y Configuración
 
@@ -90,7 +69,12 @@ Ejemplos de Operaciones CRUD en Postman
 2. Instala las dependencias:
 
     ```bash
-    npm install 
+    npm install mysql2    
+    npm install express
+    npm install morgan
+    npm install dotenv
+    npm install cors
+    npm install nodemon
     ```
 
 3. Configura las variables de entorno:
@@ -139,6 +123,28 @@ Ejemplos de Operaciones CRUD en Postman
   - Parámetro: ISBN (ISBN del libro a eliminar).
   - Retorna un mensaje confirmando la eliminación o un error si el libro no existe.
 
+
+## Capturas de Pantalla
+Ejemplos de Operaciones CRUD en Postman
+
+- **Obtener todos los libros** (GET /biblioteca)
+  ![Obtener todos los libros](./img/getAll_Postman.png)
+
+- **Obtener un libro por ID** (GET /biblioteca/:id)
+  ![Obtener un libro por ID](./img/getOne_Postman.png)
+
+- **Crear un nuevo libro** (POST /libroNuevo)
+  ![Crear un nuevo libro](./img/create_Postman.png)
+
+- **Actualizar un libro** (PUT /biblioteca/:id)
+  ![Actualizar un libro](./img/update_Postman.png)
+
+- **Eliminar un libro por ISBN** (DELETE /biblioteca/:ISBN)
+  ![Eliminar un libro por ISBN](./img/delete_Postman.png)
+
+***Respuesta en la terminal a todas estas acciones:***
+
+![CRUD en Terminal](./img/CRUD_Terminal.png)
 
 ## Estructura del Proyecto
 
@@ -352,7 +358,7 @@ Cada método en el controlador `BibliotecaController` está envuelto en un bloqu
 
 #### Funcionamiento de `try-catch`:
 
-- **`try`**: Dentro del bloque `try`, se coloca el código que puede potencialmente lanzar un error. En este caso, se trata de consultas a la base de datos y otras operaciones críticas.
+- **`try`**: Dentro de este bloque se coloca el código que puede potencialmente lanzar un error. En este caso, se trata de consultas a la base de datos y otras operaciones críticas.
 
     ```javascript
     try {
@@ -368,7 +374,7 @@ Cada método en el controlador `BibliotecaController` está envuelto en un bloqu
 #### Beneficios del uso de `try-catch`:
 
 - **Prevención de Caídas del Servidor**: Capturar errores evita que el servidor se caiga debido a excepciones no manejadas.
-- **Respuestas Consistentes**: Permite enviar respuestas consistentes al cliente en caso de error, mejorando la experiencia del usuario.
+- **Respuestas Consistentes**: Permite enviar respuestas consistentes al cliente en caso de error, aportando información respecto del mismo, y mejorando la experiencia del usuario.
 
 ### Middleware Global de Manejo de Errores (`errorHandler`)
 
@@ -407,6 +413,6 @@ El middleware global de manejo de errores (`errorHandler`) se encuentra en el ar
 
 
 \
-Este proyecto fue desarrollado para la Tarea Integradora T4 del módulo II del curso "Desarrollo frontend y backend (Nivel 1)" de Talentos Digitales 2024 -
+Este proyecto fue desarrollado para la **Tarea Integradora T4** del módulo II del curso "Desarrollo frontend y backend (Nivel 1)" de **Talentos Digitales 2024** -
 
 #### `GECR 2024`
