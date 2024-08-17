@@ -276,6 +276,33 @@ Este archivo contiene la lógica principal de la aplicación, organizando las op
     }
     ```
 
+
+#### Función de Validación de Datos: `validateLibroData`
+La función **validateLibroData** se encarga de validar los datos de entrada para la creación de un nuevo libro en la base de datos. Esta función asegura que todos los campos requeridos estén presentes y cumplan con los formatos esperados antes de proceder con la inserción en la base de datos.
+
+```javascript
+const validateLibroData = (data) => {
+    const { nombre, autor, categoria, 'año-publicacion': añoPublicacion, ISBN } = data;
+
+    if (typeof nombre !== 'string' || nombre.trim() === '') {
+        throw { type: 'ValidationError', message: 'El campo "nombre" es obligatorio y debe ser una cadena de texto.' };
+    }
+    if (typeof autor !== 'string' || autor.trim() === '') {
+        throw { type: 'ValidationError', message: 'El campo "autor" es obligatorio y debe ser una cadena de texto.' };
+    }
+    if (typeof categoria !== 'string' || categoria.trim() === '') {
+        throw { type: 'ValidationError', message: 'El campo "categoria" es obligatorio y debe ser una cadena de texto.' };
+    }
+    if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$/.test(añoPublicacion)) {
+        throw { type: 'ValidationError', message: 'El campo "año-publicacion" debe ser una fecha en formato ISO 8601.' };
+    }
+    if (typeof ISBN !== 'string' || ISBN.length !== 13) {
+        throw { type: 'ValidationError', message: 'El campo "ISBN" es obligatorio, debe ser una cadena de texto, y debe tener 13 caracteres.' };
+    }
+};
+```
+Esta función es crucial para asegurar la integridad y consistencia de los datos antes de realizar cualquier operación de inserción en la base de datos.
+
 ### `routes.js`
 
 Este archivo define las rutas de la API y asigna cada ruta a su correspondiente método en el controlador `BibliotecaController`.
